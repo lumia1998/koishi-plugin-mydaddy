@@ -19,6 +19,7 @@
 ### 配置项
 在 Koishi 管理后台插件配置页，你需要填写：
 * **model**: 在下拉列表中选择一个 ChatLuna 中已经加载的可用模型（必须）。
+* **retryTimes**: 生成失败后的重试次数，默认 `2`（0-5）。Gemini 系列模型偶尔返回 `MALFORMED_FUNCTION_CALL`，这类失败通常是偶发的，重试即可成功。
 * **systemPrompt**: 写作人格设定（默认已配置好“尽孝”风格，通常不需要修改）。
 
 ## 基本用法
@@ -33,6 +34,12 @@
 尽孝 原神 3.0版本须弥开放
 尽孝 王者荣耀 新英雄上线
 ```
+
+## 常见问题
+
+**报错 `ChatLuna error getting response` / `Gemini generation failed: MALFORMED_FUNCTION_CALL`**
+
+这是 Gemini 服务端返回的失败原因（finish reason 不是 STOP），与插件无关，但插件现在会自动重试 `retryTimes` 次。若重试后仍失败，可在 ChatLuna 中换用其他平台的模型，或调低要求的字数再试。
 
 ## 许可证
 
