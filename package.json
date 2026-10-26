@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-mydaddy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "一个用于生成热爱游戏、把游戏公司当父亲尽孝风格的游戏深度评论文章的插件。",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "test": "npm run build && node test/index.test.js"
   },
   "keywords": [
     "koishi",
@@ -35,10 +36,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@langchain/core": "^1.1.35",
     "@types/node": "^22.13.5",
     "koishi": "^4.18.2",
-    "koishi-plugin-chatluna": "^1.3.35",
+    "koishi-plugin-chatluna": "^1.4.4",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
